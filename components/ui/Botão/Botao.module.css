@@ -1,0 +1,84 @@
+.botao {
+  margin-top: 60px;/* baixar o botao na div em relacao a input password */
+  padding: 12px;/* altura do botão */
+  cursor: pointer;/* cursor de mãozinha no botão */
+  border-radius: 2rem;/* Arredondar a ponta do botao */
+  border: none;/* tirar a borda do botao */
+  transition: border-color 0.3s ease, transform 0.4s ease-in-out;/*Deixa o efeito de aumentar mais devagar e suave  */
+  font-family: "Montserrat", sans-serif;/*Fonte do bglh */
+  font-weight: bold;/* deixar o "entrar" em negrito */
+  display: flex;/* permite trabalhar com flexbox */
+  align-items: center;/* eixo vertical*/
+  justify-content: center;/* alinhar a div de login ao centro */
+  gap: 8px;/* espaço entre os elementos */
+  position: relative;
+  overflow: hidden;
+}
+
+/* variantes, ta setado como primario no default */
+.primario {
+  background-color: aliceblue;
+  color: #090167;
+  width: 8rem;
+}
+
+.secundario {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  width: 8rem;
+}
+
+/* tamanhos */
+.pequeno {
+  padding: 8px 16px;
+  font-size: 12px;
+  width: 6rem;
+}
+
+.medio{
+  padding: 12px 20px;
+  font-size: 14px;
+  width: 8rem;
+}
+
+.grande {
+  padding: 16px 24px;
+  font-size: 16px;
+  width: 10rem;
+}
+
+/* estados, se esta desabilitado ou n */
+.button:hover:not(.desabilitado) {
+  transform: scale(1.05);
+}
+
+.button:active:not(.desabilitado) {
+  transform: scale(0.98);
+}
+
+.desabilitado {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* carregando*/
+.carregando {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.textoCarregando {
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
