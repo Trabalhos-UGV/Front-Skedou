@@ -1,0 +1,3 @@
+Arquivo feito apenas para a criacao de pastas
+
+funcoes auxiliares, normalmente pequenas, uma formatacao de cpf/cnpj por exemplo
