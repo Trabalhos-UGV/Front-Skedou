@@ -1,4 +1,0 @@
-hooks personalizados, criados por nós mesmos, da pra usar a logica deles em outros arquivos, vi que é interessante ter essa pastas
-
-explicacão de hooks ai piazada: 
-https://pt-br.legacy.reactjs.org/docs/hooks-overview.html

@@ -1,1 +1,0 @@
-aqui pode se criar coisas para se utilizar mais de uma vez, apenas chamando o componente, por exemplo o botao feito na  tela de login, acredito que pode ser usado novamente na futura landpage, sei la, alem do botão da pra se criar o formularios reutilizaveis, e etc etc etc
