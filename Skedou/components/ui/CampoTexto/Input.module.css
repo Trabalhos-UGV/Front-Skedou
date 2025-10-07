@@ -1,0 +1,50 @@
+.inputGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.label {
+  text-align: left;
+  color: white;
+  align-self: flex-start;
+  margin-left: 2rem;
+  margin-bottom: 2px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  outline: none;
+  padding: 8px 4px;
+  font-size: 15px;
+  background: transparent;
+  transition: border-color 0.3s ease, transform 0.4s ease-in-out;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  width: 75%;
+  align-self: center;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Montserrat", sans-serif;
+}
+
+.input:focus {
+  transform: scale(1.05);
+  border-bottom-color: #ceb4ee;
+}
+
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input:disabled:focus {
+  transform: none;
+}
