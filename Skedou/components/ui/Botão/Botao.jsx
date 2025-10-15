@@ -1,5 +1,4 @@
 //imports padrao do react, e do estilo do botao
-import React, { Children } from 'react';
 import estilos from './Botao.module.css';
 
 
@@ -9,7 +8,7 @@ const Botao = ({
   tipo = 'button', //definindo que é um botão
   aoClicar,// aoClicar consulta se o usuário é valido por exemplo
   desabilitado = false,// habilita ou desabilita o botão
-  carregando = false, //apos clicar, pode ser adicionado um icone de carregamento, sei la
+  //carregando = false, //apos clicar, pode ser adicionado um icone de carregamento, sei la
   variacao = 'primario',// pode se mudar o estilo do botão, por padrão eesta utilizando o "primario'
   tamanho = 'medio'//controlar o tamanho
 }) => {
@@ -26,18 +25,20 @@ const Botao = ({
     ${estilos.botao}
     ${estilos[variacao]} 
     ${estilos[tamanho]}
-    ${desabilitado || carregando ? estilos.desabilitado: ''}`.trim();
+    ${desabilitado 
+      //|| carregando 
+      ? estilos.desabilitado: ''}`.trim();
 
   return (
     <button
       type={tipo}
       className={classeBotao}
       onClick={aoClicarBotao}
-      disabled={desabilitado || carregando}
+      //disabled={desabilitado || carregando}
     >
-      {carregando && <span className= {estilos.carregando}></span>}
+      {/*carregando && <span className= {estilos.carregando}></span>
       <span className={carregando ? estilos.textoCarregando : ''}>{children}
-      </span>
+      </span>*/}
     </button>
     );
 };

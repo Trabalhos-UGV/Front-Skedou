@@ -1,4 +1,3 @@
-import React from "react";
 import estilos from './Input.module.css'
 
 const CampoTexto = ({
@@ -33,7 +32,7 @@ const CampoTexto = ({
             disabled={desabilitado}
             placeholder={placeholder}
             required={obrigatorio}
-            className={estilos.campo}
+            className={estilos.input}
             />
         </div>
     );

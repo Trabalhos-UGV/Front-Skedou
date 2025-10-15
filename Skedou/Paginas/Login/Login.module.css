@@ -1,0 +1,135 @@
+.paginaLogin {
+  height: 100vh;
+  margin: 0; /* remove a margem padrao */
+  font-family: 'Montserrat', sans-serif; /* estilo das letras do bglh */
+  overflow: hidden; /* esconde tudo que vazar da tela */
+  position: relative; /* necessário pra posicionar coisas absolutas dentro */
+}
+
+.container {
+  display: flex; /* permite trabalhar com flexbox */
+  width: 100vw; /* pra ocupar toda a largura da tela */
+  height: 100vh; /* pra ocupar toda a altura da tela */
+}
+
+.ladoMarca {
+  background-color: #090167; /* Cor de fundo base */
+  position: relative; /* Garante que o container ocupe a tela e posicione o fundo corretamente */
+  width: 60vw; /* pra ocupar 60% da tela */
+  height: 100vh; /* Ocupa a altura total da tela */
+  overflow: hidden; /* Esconde as partes do gradiente que vazam */
+  display: flex;
+  justify-content: center; /* eixo horizontal */
+  align-items: center; /* eixo vertical*/
+  flex-direction: column;
+}
+
+.ladoMarca::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* tudo isso a parti daqui com foco apenas no background: radial-gradient */
+    radial-gradient(circle 250px at -120px -120px, #ceb4ee 0 100%, transparent 150%),
+    radial-gradient(circle 300px at 40% 40%, #002e74, transparent 20%),
+    radial-gradient(circle 50px at 100% 100%, #002e74, transparent 300%),
+    radial-gradient(circle 300px at 100% 110%, #c5d4ff, transparent 100%),
+    radial-gradient(circle 150px at 50% 70%, #090167, transparent 150%),
+    radial-gradient(circle 100px at 60% 10%, hsl(237, 76%, 90%), transparent 100%),
+    radial-gradient(circle 150px at 70% 30%, hsl(237, 85%, 66%), transparent 100%),
+    radial-gradient(circle 100px at 85% 45%, hsl(237, 76%, 90%), transparent 100%),
+    radial-gradient(circle 500px at 95% 20%, hsl(237, 94%, 14%), transparent 100%),
+    radial-gradient(circle 500px at 0% 100%, hsl(245, 100%, 73%), transparent 100%);
+  filter: blur(100px); /* aplica desfoque ao fundo */
+  z-index: 0; /* coloca tudo atras do conteudo */
+}
+
+.conteudoMarca {
+  position: relative;
+  z-index: 1; /* fica na frente do gradiente */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza a logo e o título */
+}
+
+.titulo {
+  font-size: 6rem; /* tamanho gigante da fonte */
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  margin: 0;
+  margin-top: -10%; /* subir o título em relacao ao centro */
+}
+
+.linhaTitulo {
+  width: 38.75rem; /* Risco em baixo do Título Skedou */
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+}
+
+.ladoFormulario {
+  position: relative;
+  width: 40vw; /* largura do fundo do login */
+  height: 100vh; /* altura do fundo do login */
+  overflow: hidden; /* garante que os backgroud linear respeite a div */
+  display: flex; /* para trabalhar com flexbox */
+  justify-content: center; /* alinhar a div de login ao centro */
+  align-items: center; /* alinhar a div de login ao centro */
+}
+
+.ladoFormulario::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* isso tudo pra funcionar o backgroud linear gradient do fundo do login */
+    radial-gradient(circle 350px at -120px -120px, #ceb4ee 0 100%, transparent 150%),
+    radial-gradient(circle 150px at 10% 40%, #ceb4ee 0 100%, transparent 150%),
+    radial-gradient(circle 100px at 60% 40%, #ceb4ee 0 100%, transparent 150%),
+    radial-gradient(circle 150px at 80% 80%, #ceb4ee 0 100%, transparent 150%),
+    radial-gradient(circle 150px at 70% 10%, hsl(237, 100%, 56%), transparent 160%),
+    radial-gradient(circle 150px at 30% 90%, hsl(237, 100%, 55%), transparent 160%),
+    radial-gradient(circle 100px at 10% 90%, #ceb4ee 0 100%, transparent 150%);
+  filter: blur(70px); /* borra tudo */
+  z-index: 0; /* garante que o backgroud fique por tras do conteudo */
+}
+
+.linhasDecorativas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* pra não atrapalhar o clique no restante da página */
+  z-index: 2;
+}
+
+.linhasSuperior {
+  position: absolute;
+  top: 30px;
+  right: -130px;
+  width: 400px;
+  height: 2px;
+  background: #090167;
+  box-shadow: 0 36px #090167, 0 72px #090167; /* Repete os riscos */
+  transform: rotate(40deg); /* inclina o risco */
+}
+
+.linhasInferior {
+  position: absolute;
+  bottom: 50px;
+  left: -140px;
+  width: 400px;
+  height: 2px;
+  background: white;
+  box-shadow: 0 -36px white, 0 -72px white; /* Repete os riscos pra cima */
+  transform: rotate(40deg);
+}

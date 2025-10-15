@@ -1,11 +1,11 @@
-.inputGroup {
+.grupoCampo {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
 
-.label {
+.rotulo {
   text-align: left;
   color: white;
   align-self: flex-start;

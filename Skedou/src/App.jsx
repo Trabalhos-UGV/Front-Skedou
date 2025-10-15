@@ -1,7 +1,12 @@
-export default function App(){
-  return(
-    <>
-      <h1>Pagina de login do projeto skedou</h1>
-    </>
-  );
-}   
+import Login from "../Paginas/Login/Login"
+import Cadastro from "../Paginas/Cadastro/Cadastro"
+
+function App() {
+  return (
+    <div className='App'>
+      <Cadastro />
+    </div>
+  )
+}
+
+export default App
