@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tab {
+  background: white;
+  color: #1e3a8a;
+  border: none;
+  border-radius: 30px;
+  padding: 0.6rem 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.tab:hover {
+  background: #e0e7ff;
+  transform: translateY(-2px);
+}
+
+.ativa {
+  background: #1e3a8a;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
