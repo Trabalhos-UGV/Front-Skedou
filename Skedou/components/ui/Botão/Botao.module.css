@@ -5,7 +5,7 @@
   border-radius: 2rem;/* Arredondar a ponta do botao */
   border: none;/* tirar a borda do botao */
   transition: border-color 0.3s ease, transform 0.4s ease-in-out;/*Deixa o efeito de aumentar mais devagar e suave  */
-  font-family: "Montserrat", sans-serif;/*Fonte do bglh */
+  font-family: "Poppins", sans-serif;/*Fonte do bglh */
   font-weight: bold;/* deixar o "entrar" em negrito */
   display: flex;/* permite trabalhar com flexbox */
   align-items: center;/* eixo vertical*/

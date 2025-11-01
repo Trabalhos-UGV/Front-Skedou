@@ -36,6 +36,7 @@ const Botao = ({
       onClick={aoClicarBotao}
       //disabled={desabilitado || carregando}
     >
+      {children}
       {/*carregando && <span className= {estilos.carregando}></span>
       <span className={carregando ? estilos.textoCarregando : ''}>{children}
       </span>*/}

@@ -11,7 +11,7 @@
   align-self: flex-start;
   margin-left: 2rem;
   margin-bottom: 2px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
@@ -25,14 +25,14 @@
   background: transparent;
   transition: border-color 0.3s ease, transform 0.4s ease-in-out;
   color: #ffffff;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   width: 75%;
   align-self: center;
 }
 
 .input::placeholder {
   color: rgba(255, 255, 255, 0.6);
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .input:focus {

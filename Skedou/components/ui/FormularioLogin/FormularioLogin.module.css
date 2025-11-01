@@ -1,104 +1,50 @@
 .formularioLogin {
   position: relative;
   border-radius: 15px;
-  width: 250px;
+  width: 400px;
+  min-height: 500px; 
   background-color: #090167;
   z-index: 1;
+  padding-bottom: 20px; 
+  transition: all 0.3s ease; 
 }
-
 
 .fundoFormulario {
   content: "";
-
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  
   background: 
-      /* Mancha clara no topo-esquerda */
-    radial-gradient(circle 200px at 10% 30%, #e8e3ee 0%, transparent 100%),
-    
-    /* Mancha branca na parte inferior */
-    radial-gradient(circle 150px at 30% 80%, #ffffff 0%, transparent 100%),
-    
-    /* Mancha branca na direita-meio */
-    radial-gradient(circle 100px at 70% 40%, #ffffff 0%, transparent 100%);
-  
-  /* Desfoque de 80px para suavizar as manchas */
+    radial-gradient(circle 100px at 10% 30%, #e8e3ee 0%, transparent 160%),
+    radial-gradient(circle 50px at 30% 80%, #ffffff 0%, transparent 160%),
+    radial-gradient(circle 50px at 70% 40%, #ffffff 0%, transparent 160%);
   filter: blur(80px);
-  
-  /* z-index -1 para ficar ATRÁS do conteúdo do formulário */
   z-index: -1;
-  
-  /* Mesmas bordas arredondadas do formulário */
   border-radius: 15px;;
 }
-
-/* Container que organiza os campos e botão */
 .conteudoFormulario {
-  /* Flexbox para organizar elementos em coluna */
   display: flex;
-  flex-direction: column;  /* Um embaixo do outro */
-  
-  /* Centraliza verticalmente o conteúdo */
+  flex-direction: column;
   justify-content: center;
-  
-  /* Espaçamento de 9px entre cada elemento filho */
   gap: 9px;
-  
-  /* Espaçamento interno de 20px em todos os lados */
   padding: 20px;
-  
-  /* Margem superior de 50px (empurra formulário pra baixo) */
   margin-top: 50px;
-  
-  /* Alinha elementos filhos ao centro horizontalmente */
   align-items: center;
-  
-  /* Position relative para controlar z-index */
   position: relative;
-  
-  /* z-index 1 para ficar na frente do fundoFormulario */
   z-index: 1;
 }
-
-/* ========================================
-   MENSAGEM DE ERRO
-   ======================================== */
-
-/* Estilo da caixa de mensagem de erro */
 .mensagemErro {
-  /* Cor vermelha suave para o texto */
   color: #ff6b6b;
-  
-  /* Tamanho da fonte 14 pixels */
   font-size: 14px;
-  
-  /* Texto centralizado */
   text-align: center;
-  
-  /* Espaçamento de 10px acima e abaixo */
   margin: 10px 0;
-  
-  /* Fonte Montserrat */
-  font-family: 'Montserrat', sans-serif;
-  
-  /* Fundo vermelho bem transparente */
+  font-family: 'Poppins', sans-serif;
   background: rgba(255, 107, 107, 0.1);
-  
-  /* Espaçamento interno (8px vertical, 12px horizontal) */
   padding: 8px 12px;
-  
-  /* Cantos arredondados de 4px */
   border-radius: 4px;
-  
   border: 1px solid rgba(255, 107, 107, 0.3);
-  
-  /* Largura de 100% do container pai */
   width: 100%;
-  
-  /* box-sizing faz padding e border não aumentarem o tamanho total */
   box-sizing: border-box;
 }
