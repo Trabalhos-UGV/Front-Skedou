@@ -1,10 +1,10 @@
-import Login from "../Paginas/Login/Login"
-import Cadastro from "../Paginas/Cadastro/Cadastro"
+// src/App.jsx
+import Autenticacao from '../Paginas/Autenticacao/Autenticacao';
 
 function App() {
   return (
     <div className='App'>
-      <Cadastro />
+      <Autenticacao />
     </div>
   )
 }
