@@ -1,6 +1,6 @@
 import React from "react";
 import { Star, Clock, MapPin } from "lucide-react";
-import Botao from "../Botao/Botao";
+import Botao from "../Botão/Botao";
 import estilos from "./CardNegocio.module.css";
 
 const CardNegocio = ({ negocio }) => {
