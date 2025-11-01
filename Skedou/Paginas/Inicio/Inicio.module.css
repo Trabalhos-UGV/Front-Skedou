@@ -1,28 +1,141 @@
+/* ===============================
+   LAYOUT PRINCIPAL DA PÁGINA
+   =============================== */
+
 .container {
   display: flex;
   flex-direction: column;
-  padding: 2rem 3rem;
-  color: white;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0a48ff 0%, #2563eb 40%, #1d4ed8 80%);
-  border-radius: 24px;
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0; /* remove bordas arredondadas */
 }
+
+/* Remove qualquer sombra interna antiga */
+.container::before {
+  content: none;
+}
+
+/* ===============================
+   TÍTULO
+   =============================== */
 
 .titulo {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-align: left;
   font-family: "Poppins", sans-serif;
+  margin-bottom: 1.5rem;
   color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
+
+/* ===============================
+   ÁREA DAS TABS
+   =============================== */
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab {
+  background: white;
+  color: #1e3a8a;
+  border: none;
+  border-radius: 30px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.tab:hover {
+  background: #e0e7ff;
+}
+
+.ativa {
+  background: #0b1f7a;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* ===============================
+   LISTA DE CARDS
+   =============================== */
 
 .listaCards {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-top: 2rem;
-  justify-content: flex-start;
+}
+
+/* ===============================
+   IMAGEM DE FUNDO "S" (marca d’água)
+   =============================== */
+
+.imagemFundo {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  width: 280px;
+  height: auto;
+  opacity: 0.06;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===============================
+   CARD DE NEGÓCIO
+   =============================== */
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 350px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* ===============================
+   AJUSTES DE TEXTO DO CARD
+   =============================== */
+
+.cardTitulo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.cardDescricao {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.8rem;
+}
+
+.cardInfo {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
 }
