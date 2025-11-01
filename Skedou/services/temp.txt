@@ -1,3 +1,0 @@
-Arquivo feito apenas para a criacao de pastas
-
-aqui se cria os arquivos de conexao com o controller, sei la, consultar na tela de login, se o usuario existe, caso ele existe, ele passa, se nãoo existe, não passa
