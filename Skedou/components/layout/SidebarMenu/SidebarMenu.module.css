@@ -1,21 +1,33 @@
 .sidebar {
   width: 260px;
-  background: linear-gradient(180deg, #0a0f2c, #13235a);
+  background: linear-gradient(180deg, #0b113a 0%, #121f52 100%);
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1.5rem 0;
   border-right: 2px solid rgba(255, 255, 255, 0.05);
+  position: relative;
 }
 
+/* LOGO AGORA FICA ACIMA DOS MENUS */
 .logoArea {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 2rem;
+  margin-top: 1rem;
+  height: 80px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* CENTRALIZA OS MENUS VERTICALMENTE */
 .menu {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center; /* <-- centralizado verticalmente */
   gap: 1.5rem;
   width: 100%;
   padding-left: 2.5rem;
@@ -28,7 +40,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -54,4 +66,5 @@
   font-family: "Poppins", sans-serif;
   padding: 1rem;
   color: rgba(255, 255, 255, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
