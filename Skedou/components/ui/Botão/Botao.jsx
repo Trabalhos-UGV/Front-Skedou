@@ -15,7 +15,7 @@ const Botao = ({
 
   //logica do clique
   const aoClicarBotao = (evento) => {
-    if(desabilitado || carregando) return; //verifica se nenhuma delas é verdadeira e retorna
+    if(desabilitado) return; //verifica se nenhuma delas é verdadeira e retorna
     if(aoClicar) aoClicar(evento); //caso passe da etapa anterior, ele executa aoClicar
   };
 
@@ -34,7 +34,7 @@ const Botao = ({
       type={tipo}
       className={classeBotao}
       onClick={aoClicarBotao}
-      //disabled={desabilitado || carregando}
+      disabled={desabilitado}
     >
       {children}
       {/*carregando && <span className= {estilos.carregando}></span>

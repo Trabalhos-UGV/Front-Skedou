@@ -252,7 +252,7 @@ const FormularioCadastro = ({
 
         <div style={{ display: "flex", gap: "10px", marginTop: "15px" }}>
           {etapa > 1 && (
-            <Botao tipo="button" onClick={voltarEtapa}>
+            <Botao tipo="button" aoClicar={voltarEtapa}>
               Voltar
             </Botao>
           )}
