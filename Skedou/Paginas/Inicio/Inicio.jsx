@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import LayoutGeral from "../../components/layout/LayoutGeral/LayoutGeral";
 import TabsCategorias from "../../components/ui/TabsCategorias/TabsCategorias";
 import CardNegocio from "../../components/ui/CardNegocio/CardNegocio";
+
 import estilos from "./Inicio.module.css";
 
 const Inicio = () => {
-  const [categoriaSelecionada, setCategoriaSelecionada] = useState("Mecânica");
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState("Geral");
 
   const negocios = [
     {
@@ -17,7 +18,7 @@ const Inicio = () => {
       avaliacoes: 256,
       horario: "Seg – Sex: 08h às 18h",
       endereco: "Av. Brasil, 1234 – Centro",
-      imagem: "/images/auto_repair_logo.png",
+      imagem: "/assets/auto_repair_logo.png",
     },
   ];
 
