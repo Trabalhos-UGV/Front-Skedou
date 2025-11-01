@@ -109,7 +109,7 @@ const Autenticacao = () => {
 
       <div className={estilos.container}>
         <div className={estilos.ladoMarca}>
-          <div className={estilos.conteudoMarca}>
+          <div className={`${estilos.conteudoMarca} ${estilos.conteudoMarcaMobile}`}>
             <Logo />
             <h1 className={estilos.titulo}>SKEDOU</h1>
             <div className={estilos.linhaTitulo}></div>
