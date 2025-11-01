@@ -1,0 +1,122 @@
+.paginaLogin {
+  height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.ladoMarca {
+  background-color: #090167;
+  position: relative;
+  width: 60vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;  
+  align-items: center;   
+  flex-direction: column;   
+}
+.ladoMarca::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle 250px at -120px -120px, #ceb4ee 0 100%, transparent 150%),
+    radial-gradient(circle 300px at 40% 40%, #002e74, transparent 20%),
+    radial-gradient(circle 50px at 100% 100%, #002e74, transparent 300%),
+    radial-gradient(circle 300px at 100% 110%, #c5d4ff, transparent 100%),
+    radial-gradient(circle 150px at 50% 70%, #090167, transparent 150%),
+    radial-gradient(circle 100px at 60% 10%, hsl(237, 76%, 90%), transparent 100%),
+    radial-gradient(circle 150px at 70% 30%, hsl(237, 85%, 66%), transparent 100%),
+    radial-gradient(circle 100px at 85% 45%, hsl(237, 76%, 90%), transparent 100%),
+    radial-gradient(circle 500px at 95% 20%, hsl(237, 94%, 14%), transparent 100%),
+    radial-gradient(circle 500px at 0% 100%, hsl(245, 100%, 73%), transparent 100%);
+  filter: blur(100px);
+  z-index: 0;
+}
+.conteudoMarca {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+.titulo {
+  font-size: 6rem;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  margin: 0;
+  margin-top: -10%;
+}
+.linhaTitulo {
+  width: 38.75rem;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+}
+.ladoFormulario {
+  position: relative;
+  width: 40vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;  
+  align-items: center;     
+}
+.ladoFormulario::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle 350px at -120px -120px, #ceb4ee 0 100%, transparent 150%),
+    radial-gradient(circle 150px at 10% 40%, #ceb4ee 0 100%, transparent 150%),
+    radial-gradient(circle 100px at 60% 40%, #ceb4ee 0 100%, transparent 150%),
+    radial-gradient(circle 150px at 80% 80%, #ceb4ee 0 100%, transparent 150%),
+    radial-gradient(circle 150px at 70% 10%, hsl(237, 100%, 56%), transparent 160%),
+    radial-gradient(circle 150px at 30% 90%, hsl(237, 100%, 55%), transparent 160%),
+    radial-gradient(circle 100px at 10% 90%, #ceb4ee 0 100%, transparent 150%);
+  filter: blur(70px);
+  z-index: 0;
+}
+.linhasDecorativas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+.linhasSuperior {
+  position: absolute;
+  top: 30px;
+  right: -130px;
+  width: 400px;
+  height: 2px;
+  background: #090167;
+  box-shadow: 0 36px #090167, 0 72px #090167;
+  transform: rotate(40deg);
+}
+.linhasInferior {
+  position: absolute;
+  bottom: 50px;
+  left: -140px;
+  width: 400px;
+  height: 2px;
+  background: white;
+  box-shadow: 0 -36px white, 0 -72px white;
+  transform: rotate(40deg);
+}
