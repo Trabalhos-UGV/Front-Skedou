@@ -6,18 +6,27 @@ import estilos from "./SidebarMenu.module.css";
 const SidebarMenu = () => {
   return (
     <aside className={estilos.sidebar}>
+      {/* LOGO NO TOPO */}
       <div className={estilos.logoArea}>
-        <Logo tamanho="pequeno" />
+        <Logo tamanho="medio" />
       </div>
 
+      {/* MENUS CENTRALIZADOS */}
       <nav className={estilos.menu}>
-        <a className={`${estilos.item} ${estilos.ativo}`}><Home size={20}/> Início</a>
-        <a className={estilos.item}><Settings size={20}/> Negócios</a>
-        <a className={estilos.item}><Calendar size={20}/> Agendamentos</a>
+        <a className={`${estilos.item} ${estilos.ativo}`}>
+          <Home size={20} /> Início
+        </a>
+        <a className={estilos.item}>
+          <Settings size={20} /> Negócios
+        </a>
+        <a className={estilos.item}>
+          <Calendar size={20} /> Agendamentos
+        </a>
       </nav>
 
+      {/* ÁREA DO USUÁRIO NO RODAPÉ */}
       <div className={estilos.usuario}>
-        <User size={24}/> <span>Thiago</span>
+        <User size={24} /> <span>Thiago</span>
       </div>
     </aside>
   );
