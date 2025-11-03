@@ -1,0 +1,79 @@
+.botao {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 2rem;
+  border: none;
+  transition: border-color 0.3s ease, transform 0.4s ease-in-out;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.primario {
+  background-color: aliceblue;
+  color: #090167;
+  width: 8rem;
+}
+
+.secundario {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  width: 8rem;
+}
+
+.pequeno {
+  padding: 8px 16px;
+  font-size: 12px;
+  width: 6rem;
+}
+
+.medio{
+  padding: 12px 20px;
+  font-size: 14px;
+  width: 8rem;
+}
+
+.grande {
+  padding: 16px 24px;
+  font-size: 16px;
+  width: 10rem;
+}
+
+.botao:hover:not(.desabilitado) {
+  transform: scale(1.05);
+}
+
+.botao:active:not(.desabilitado) {
+  transform: scale(0.98);
+}
+
+.desabilitado {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.carregando {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.textoCarregando {
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,1 +1,0 @@
-arquivos reutilizaveis, porem como a propria palavra diz, layouts, então se vc quer usar o cabecalho de uma pagina, na outra, vc pega e cria o cabecalho aqui, e apenas puxa esse mesmo arquivo na outra aba, sem precisar refazelo

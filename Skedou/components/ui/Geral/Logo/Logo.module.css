@@ -1,0 +1,58 @@
+* {
+  user-select: none;
+}
+
+.Logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- POSIÇÕES --- */
+.centralizado {
+  position: absolute;
+  top: 7%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  z-index: 0;
+  width: 400px;
+}
+
+.normal {
+  position: relative;
+  opacity: 1;
+  z-index: 1;
+}
+
+/* --- TAMANHOS --- */
+.pequeno {
+  width: 10rem;
+  height: 10rem;
+}
+
+.medio {
+  width: 15rem;
+  height: 15rem;
+}
+
+.grande {
+  width: 25rem;
+  height: 25rem;
+}
+
+/* --- IMAGEM PRINCIPAL --- */
+.imagemLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+/* --- IMAGEM SECUNDÁRIA (logo2) --- */
+.Logo.secundaria .imagemLogo {
+  filter: brightness(1.1) contrast(1.05);
+  opacity: 0.9;
+}
+
+  

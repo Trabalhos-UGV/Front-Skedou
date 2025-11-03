@@ -1,0 +1,240 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 4rem;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.conteudo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.cardNegocio {
+  background: linear-gradient(
+    135deg,
+    rgba(96, 165, 250, 0.25),
+    rgba(30, 58, 138, 0.25)
+  );
+  border-radius: 20px;
+  padding: 2rem 2.2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+  color: white;
+}
+
+.cardNegocio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35);
+}
+
+.subtitulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 0.5rem;
+}
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  transition: background 0.25s ease;
+}
+
+.infoItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.valor {
+  font-size: 1.05rem;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+.horariosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.horarioDia {
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif;
+  background: rgba(59, 130, 246, 0.15);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.horarioDia:hover {
+  background: rgba(96, 165, 250, 0.25);
+  transform: translateY(-2px);
+}
+.acoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+.semNegocio,
+.vazio,
+.carregando {
+  background: linear-gradient(
+    145deg,
+    rgba(59, 130, 246, 0.25),
+    rgba(30, 58, 138, 0.25)
+  );
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.headerServicos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.listaServicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.8rem;
+}
+
+.listaSolicitacoes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+.marcaDagua {
+  position: absolute;
+  bottom: -40px;
+  right: 8%;
+  font-size: 380px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  font-family: "Poppins", sans-serif;
+  z-index: 0;
+  filter: blur(1px);
+}
+.cardNegocio,
+.cardNegocio * {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+.subtitulo {
+  font-weight: 600 !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.label {
+  font-weight: 500 !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.valor,
+.horarioDia {
+  font-weight: 400 !important;
+  font-family: "Poppins", sans-serif !important;
+}
+.horarioDia {
+  color: #ffffff !important;
+  background: rgba(59, 130, 246, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.horarioDia:hover {
+  background: rgba(147, 197, 253, 0.25);
+  transform: translateY(-3px);
+}
+.headerNegocios {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: rgba(59, 130, 246, 0.15);
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.headerNegocios h2 {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+}

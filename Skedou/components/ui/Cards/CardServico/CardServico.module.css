@@ -1,0 +1,67 @@
+.card {
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.3), rgba(30, 58, 138, 0.3));
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.nome {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  flex: 1;
+}
+
+.acoes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.botaoIcone {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.botaoIcone:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+}
