@@ -35,22 +35,22 @@ const CardSolicitacao = ({ solicitacao, aoAtualizar }) => {
   const handleConfirmar = async () => {
     try {
       await atualizarStatusAgendamento(solicitacao.agd_cod, "confirmado");
-      alert("Agendamento confirmado!");
+      //alert("Agendamento confirmado!");
       aoAtualizar();
     } catch (erro) {
       console.error("Erro ao confirmar:", erro);
-      alert("Erro ao confirmar agendamento");
+      //alert("Erro ao confirmar agendamento");
     }
   };
 
   const handleCancelar = async () => {
     try {
       await atualizarStatusAgendamento(solicitacao.agd_cod, "cancelado");
-      alert("Agendamento cancelado!");
+      //alert("Agendamento cancelado!");
       aoAtualizar();
     } catch (erro) {
       console.error("Erro ao cancelar:", erro);
-      alert("Erro ao cancelar agendamento");
+      //alert("Erro ao cancelar agendamento");
     }
   };
 

@@ -69,22 +69,22 @@ const Negocios = () => {
       if (negocioEditando) {
         console.log("🔄 Modo: ATUALIZAR negócio", negocioEditando.codigo);
         await atualizarNegocio(negocioEditando.codigo, dados);
-      } 
-      else {
+      } else {
         console.log("➕ Modo: CADASTRAR novo negócio");
         await cadastrarNegocio(dados);
       }
-      
+
       setModalNegocioAberto(false);
       setNegocioEditando(null);
       carregarDados();
-      alert("Negócio salvo com sucesso!");
+      ("Negócio salvo com sucesso!");
     } catch (erro) {
       console.error("Erro ao salvar negócio:", erro);
-      const mensagemErro = erro.response?.data?.message || 
-                          erro.response?.data?.erro || 
-                          "Erro ao salvar negócio";
-      alert(mensagemErro);
+      const mensagemErro =
+        erro.response?.data?.message ||
+        erro.response?.data?.erro ||
+        "Erro ao salvar negócio";
+      //alert(mensagemErro);
     }
   };
 
@@ -106,7 +106,7 @@ const Negocios = () => {
       carregarDados();
     } catch (erro) {
       console.error("Erro ao salvar serviço:", erro);
-      alert("Erro ao salvar serviço");
+      //alert("Erro ao salvar serviço");
     }
   };
 

@@ -76,7 +76,7 @@ const Autenticacao = () => {
         telefoneCod: usuario.telefone.tel_cod,
       });
 
-      alert(`Bem-vindo, ${usuario.usr_nom}!`);
+      //alert(`Bem-vindo, ${usuario.usr_nom}!`);
     } catch (erro) {
       console.error("Erro ao logar:", erro);
       setErro(
@@ -119,7 +119,7 @@ const Autenticacao = () => {
         usr_sen: senha,
       });
 
-      alert("Cadastro realizado com sucesso! Faça login para continuar.");
+      //alert("Cadastro realizado com sucesso! Faça login para continuar.");
       setEhCadastro(false);
       setDadosLogin({ usuario: email, senha: "" });
     } catch (erro) {

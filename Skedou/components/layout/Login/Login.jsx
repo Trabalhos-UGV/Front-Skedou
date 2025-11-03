@@ -31,7 +31,7 @@ const Login = () => {
       const resultado = await servicoAuth.fazerLogin(dadosLogin);
       if (resultado.sucesso) {
         console.log('Login realizado com sucesso!', resultado);
-        alert('Bem-vindo, ' + resultado.usuario.nome);
+        //alert('Bem-vindo, ' + resultado.usuario.nome);
         
       } else {
         setErro(resultado.mensagem || 'Usuário ou senha inválidos');

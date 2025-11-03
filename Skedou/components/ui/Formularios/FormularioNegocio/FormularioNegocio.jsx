@@ -103,12 +103,12 @@ const FormularioNegocio = ({ aoSalvar, negocioExistente }) => {
     try {
 
       if (!dados.nome.trim()) {
-        alert("O nome do estabelecimento é obrigatório");
+        //alert("O nome do estabelecimento é obrigatório");
         return;
       }
 
       if (!dados.telefone.trim()) {
-        alert("O telefone é obrigatório");
+        //alert("O telefone é obrigatório");
         return;
       }
       const horariosArray = Object.entries(horarios).map(([dia, info]) => ({
@@ -144,7 +144,7 @@ const FormularioNegocio = ({ aoSalvar, negocioExistente }) => {
       
     } catch (erro) {
       console.error(" Erro no submit:", erro);
-      alert("Erro ao salvar negócio. Verifique os dados e tente novamente.");
+      //alert("Erro ao salvar negócio. Verifique os dados e tente novamente.");
     }
   };
 

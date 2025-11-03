@@ -8,11 +8,11 @@ const CardServico = ({ servico, negocioId, aoAtualizar }) => {
     if (window.confirm("Tem certeza que deseja deletar este serviço?")) {
       try {
         await deletarServico(negocioId, servico.srv_cod);
-        alert("Serviço deletado com sucesso!");
+        //alert("Serviço deletado com sucesso!");
         aoAtualizar();
       } catch (erro) {
         console.error("Erro ao deletar serviço:", erro);
-        alert("Erro ao deletar serviço");
+        //alert("Erro ao deletar serviço");
       }
     }
   };
