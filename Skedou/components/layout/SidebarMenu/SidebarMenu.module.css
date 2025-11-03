@@ -5,32 +5,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 0;
-  border-right: 2px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem 0 0 0;
+
   position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* LOGO AGORA FICA ACIMA DOS MENUS */
 .logoArea {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   margin-top: 1rem;
   height: 80px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
 }
 
-/* CENTRALIZA OS MENUS VERTICALMENTE */
 .menu {
+  margin-top: 19%;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* <-- centralizado verticalmente */
+  justify-content:first baseline;
   gap: 1.5rem;
   width: 100%;
   padding-left: 2.5rem;
+  overflow-y: auto;
 }
 
 .item {
@@ -44,6 +46,8 @@
   text-decoration: none;
   cursor: pointer;
   transition: all 0.25s ease;
+  padding: 0.6rem 1rem;
+  background: transparent;
 }
 
 .item:hover {
@@ -52,19 +56,148 @@
 }
 
 .ativo {
-  background: linear-gradient(90deg, #2563eb, #1e40af);
-  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, #0034C7 0%, #3A5BB5 40%,  #1e3a8a 100%);
+  padding: 1rem 1rem;
+  padding-right: 3rem;
+  margin-right: -3rem;
   border-radius: 12px 0 0 12px;
+  color: white;
+}
+
+.usuarioArea {
+  position: relative;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
 }
 
 .usuario {
-  margin-top: auto;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.8rem;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
-  padding: 1rem;
+  padding: 0.8rem 1rem;
+  margin: 0 0.5rem;
   color: rgba(255, 255, 255, 0.85);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.usuario:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.usuarioAtivo {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.avatarCirculo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.usuarioInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+.nomeUsuario {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emailUsuario {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.iconeChevron {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.chevronRotacionado {
+  transform: rotate(180deg);
+}
+
+.menuDropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0.5rem;
+  right: 0.5rem;
+  background: linear-gradient(145deg, #1e3a8a, #0b113a);
+  border-radius: 12px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideUp 0.3s ease;
+  z-index: 1000;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.itemDropdown {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.itemDropdown:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.itemSair {
+  color: #ef4444;
+}
+
+.itemSair:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ff5555;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0.5rem 0;
 }
