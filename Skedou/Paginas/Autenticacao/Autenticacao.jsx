@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import FormularioLogin from "../../components/ui/FormularioLogin/FormularioLogin";
-import FormularioCadastro from "../../components/ui/FormularioCadastro/FormularioCadastro";
-import Logo from "../../components/ui/Logo/Logo";
-import { cadastrarUsuario, logarUsuario } from "../../services/autenticacaoService";
-
+import FormularioLogin from "../../components/ui/Formularios/FormularioLogin/FormularioLogin";
+import FormularioCadastro from "../../components/ui/Formularios/FormularioCadastro/FormularioCadastro";
+import Logo from "../../components/ui/Geral/Logo/Logo";
+import {
+  cadastrarUsuario,
+  logarUsuario,
+} from "../../services/autenticacaoService";
+import { useAuth } from "../../context/AuthContext"; 
 import estilos from "./Autenticacao.module.css";
 
 const Autenticacao = () => {
+  const { login } = useAuth(); 
   const [ehCadastro, setEhCadastro] = useState(false);
-
-  const [dadosLogin, setDadosLogin] = useState({
-    usuario: "",
-    senha: "",
-  });
-
+  const [dadosLogin, setDadosLogin] = useState({ usuario: "", senha: "" });
   const [dadosCadastro, setDadosCadastro] = useState({
     nomeCompleto: "",
     cpfCnpj: "",
@@ -22,8 +21,9 @@ const Autenticacao = () => {
     senha: "",
     confirmarSenha: "",
   });
-
   const [erro, setErro] = useState("");
+  const [carregando, setCarregando] = useState(false);
+
   const alternarModo = () => {
     setEhCadastro(!ehCadastro);
     setErro("");
@@ -49,22 +49,42 @@ const Autenticacao = () => {
     setDadosCadastro((prev) => ({ ...prev, [name]: value }));
     if (erro) setErro("");
   };
+
   const aoEnviarLogin = async () => {
     if (!dadosLogin.usuario || !dadosLogin.senha) {
       setErro("Preencha todos os campos");
       return;
     }
 
+    setCarregando(true);
     try {
       const resposta = await logarUsuario({
-        usr_eml: dadosLogin.usuario,
-        usr_senha: dadosLogin.senha,
+        eml_end: dadosLogin.usuario,
+        usr_sen: dadosLogin.senha,
       });
 
-      alert(`Bem-vindo, ${resposta.data.usr_nom || "usuário"}!`);
+      const { usuario } = resposta;
+
+      login({
+        id: usuario.usr_cod,
+        nome: usuario.usr_nom,
+        cpfCnpj: usuario.usr_cpfcnpj,
+        ativo: usuario.usr_atv,
+        email: usuario.email.eml_end,
+        emailCod: usuario.email.eml_cod,
+        telefone: usuario.telefone.tel_num,
+        telefoneCod: usuario.telefone.tel_cod,
+      });
+
+      alert(`Bem-vindo, ${usuario.usr_nom}!`);
     } catch (erro) {
       console.error("Erro ao logar:", erro);
-      setErro(erro.response?.data?.message || "Erro ao logar");
+      setErro(
+        erro.response?.data?.message ||
+          "Erro ao logar. Verifique suas credenciais."
+      );
+    } finally {
+      setCarregando(false);
     }
   };
 
@@ -72,7 +92,14 @@ const Autenticacao = () => {
     const { nomeCompleto, cpfCnpj, telefone, email, senha, confirmarSenha } =
       dadosCadastro;
 
-    if (!nomeCompleto || !cpfCnpj || !telefone || !email || !senha || !confirmarSenha) {
+    if (
+      !nomeCompleto ||
+      !cpfCnpj ||
+      !telefone ||
+      !email ||
+      !senha ||
+      !confirmarSenha
+    ) {
       setErro("Preencha todos os campos");
       return;
     }
@@ -82,34 +109,37 @@ const Autenticacao = () => {
       return;
     }
 
+    setCarregando(true);
     try {
-      const resposta = await cadastrarUsuario({
+      await cadastrarUsuario({
         usr_nom: nomeCompleto,
-        usr_cpf: cpfCnpj.replace(/\D/g, ""),
-        usr_eml: email,
-        usr_tel: telefone.replace(/\D/g, ""),
-        usr_senha: senha,
-        usr_atv: true,
+        usr_cpfcnpj: cpfCnpj.replace(/\D/g, ""),
+        eml_end: email,
+        tel_num: telefone.replace(/\D/g, ""),
+        usr_sen: senha,
       });
 
-      alert("Cadastro realizado com sucesso!");
+      alert("Cadastro realizado com sucesso! Faça login para continuar.");
       setEhCadastro(false);
+      setDadosLogin({ usuario: email, senha: "" });
     } catch (erro) {
       console.error("Erro ao cadastrar:", erro);
       setErro(erro.response?.data?.message || "Erro ao cadastrar");
+    } finally {
+      setCarregando(false);
     }
   };
+
   return (
     <div className={estilos.paginaAuth}>
-
       <div className={estilos.linhasDecorativas}>
         <div className={estilos.linhasSuperior}></div>
         <div className={estilos.linhasInferior}></div>
       </div>
       <div className={estilos.container}>
         <div className={estilos.ladoMarca}>
-          <div className={`${estilos.conteudoMarca} ${estilos.conteudoMarcaMobile}`}>
-            <Logo />
+          <div className={estilos.conteudoMarca}>
+            <Logo posicao="centralizado" />
             <h1 className={estilos.titulo}>SKEDOU</h1>
             <div className={estilos.linhaTitulo}></div>
           </div>
@@ -130,6 +160,7 @@ const Autenticacao = () => {
                     aoMudarInput={aoMudarLogin}
                     aoEnviar={aoEnviarLogin}
                     erro={erro}
+                    carregando={carregando}
                   />
                   <div className={estilos.linkAlternar}>
                     <p className={estilos.textoAlternar}>Não tem uma conta?</p>
@@ -148,6 +179,7 @@ const Autenticacao = () => {
                     aoMudarInput={aoMudarCadastro}
                     aoEnviar={aoEnviarCadastro}
                     erro={ehCadastro ? erro : ""}
+                    carregando={carregando}
                   />
                   <div className={estilos.linkAlternar}>
                     <p className={estilos.textoAlternar}>Já tem uma conta?</p>
@@ -163,7 +195,7 @@ const Autenticacao = () => {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </div>
   );
 };
