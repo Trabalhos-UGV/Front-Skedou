@@ -21,6 +21,7 @@ const FormularioNegocio = ({ aoSalvar, negocioExistente }) => {
     descricao: "",
     endereco: "",
     telefone: "",
+    cnpj: "",
   });
 
   const [horarios, setHorarios] = useState({
@@ -68,6 +69,34 @@ const FormularioNegocio = ({ aoSalvar, negocioExistente }) => {
     },
   });
 
+  const formatarCPFCNPJ = (valor) => {
+    const numeros = valor.replace(/\D/g, "");
+    
+    if (numeros.length <= 11) {
+      return numeros
+        .replace(/^(\d{3})(\d)/, "$1.$2")
+        .replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3")
+        .replace(/\.(\d{3})(\d)/, ".$1-$2");
+    } else if (numeros.length <= 14) {
+      return numeros
+        .replace(/^(\d{2})(\d)/, "$1.$2")
+        .replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+        .replace(/\.(\d{3})(\d)/, ".$1/$2")
+        .replace(/(\d{4})(\d)/, "$1-$2");
+    }
+    return valor;
+  };
+
+  const formatarTelefone = (valor) => {
+    const numeros = valor.replace(/\D/g, "");
+    if (numeros.length <= 11) {
+      return numeros
+        .replace(/^(\d{2})(\d)/, "($1) $2")
+        .replace(/(\d{5})(\d)/, "$1-$2");
+    }
+    return valor;
+  };
+
   useEffect(() => {
     if (negocioExistente) {
       setDados({
@@ -75,7 +104,8 @@ const FormularioNegocio = ({ aoSalvar, negocioExistente }) => {
         categoria: negocioExistente.emp_cat?.toString() || "1",
         descricao: negocioExistente.emp_dsc || "",
         endereco: negocioExistente.endereco || "",
-        telefone: negocioExistente.telefone || "",
+        telefone: formatarTelefone(negocioExistente.telefone || ""),
+        cnpj: formatarCPFCNPJ(negocioExistente.emp_cnpj || usuario?.cpfCnpj || ""),
       });
 
       if (negocioExistente.horarios) {
@@ -94,23 +124,33 @@ const FormularioNegocio = ({ aoSalvar, negocioExistente }) => {
 
         setHorarios((prev) => ({ ...prev, ...horariosConvertidos }));
       }
+    } else {
+      setDados(prev => ({
+        ...prev,
+        cnpj: formatarCPFCNPJ(usuario?.cpfCnpj || "")
+      }));
     }
-  }, [negocioExistente]);
+  }, [negocioExistente, usuario]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-
       if (!dados.nome.trim()) {
-        //alert("O nome do estabelecimento é obrigatório");
+        alert("O nome do estabelecimento é obrigatório");
         return;
       }
 
       if (!dados.telefone.trim()) {
-        //alert("O telefone é obrigatório");
+        alert("O telefone é obrigatório");
         return;
       }
+
+      if (!dados.cnpj.trim()) {
+        alert("O CPF/CNPJ é obrigatório");
+        return;
+      }
+
       const horariosArray = Object.entries(horarios).map(([dia, info]) => ({
         dia: dia.charAt(0).toUpperCase() + dia.slice(1),
         aberto: info.aberto,
@@ -128,7 +168,7 @@ const FormularioNegocio = ({ aoSalvar, negocioExistente }) => {
         emp_usr: usuario.id,
         emp_cat: parseInt(dados.categoria),
         emp_dsc: dados.descricao.trim() || "",
-        emp_cnpj: usuario?.cpfCnpj || "00000000000000",
+        emp_cnpj: dados.cnpj.replace(/\D/g, ""),
         email: usuario?.email || "",
         telefone: dados.telefone.replace(/\D/g, ""),
         endereco: {
@@ -137,19 +177,26 @@ const FormularioNegocio = ({ aoSalvar, negocioExistente }) => {
         horarios: horariosArray,
       };
 
-      console.log("📤 Enviando dados para API:", dadosCompletos);
+      console.log("Enviando dados para API:", dadosCompletos);
 
-      // Chama função de salvar passada por props
       await aoSalvar(dadosCompletos);
       
     } catch (erro) {
-      console.error(" Erro no submit:", erro);
-      //alert("Erro ao salvar negócio. Verifique os dados e tente novamente.");
+      console.error("Erro no submit:", erro);
+      alert("Erro ao salvar negócio. Verifique os dados e tente novamente.");
     }
   };
 
   const handleChange = (e) => {
-    setDados({ ...dados, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    
+    if (name === "telefone") {
+      setDados({ ...dados, [name]: formatarTelefone(value) });
+    } else if (name === "cnpj") {
+      setDados({ ...dados, [name]: formatarCPFCNPJ(value) });
+    } else {
+      setDados({ ...dados, [name]: value });
+    }
   };
 
   const handleHorarioChange = (dia, campo, valor) => {
@@ -206,13 +253,16 @@ const FormularioNegocio = ({ aoSalvar, negocioExistente }) => {
 
       <div className={estilos.linha}>
         <div className={estilos.campo}>
-          <label className={estilos.label}>Endereço</label>
+          <label className={estilos.label}>CPF/CNPJ *</label>
           <input
             type="text"
-            name="endereco"
-            value={dados.endereco}
+            name="cnpj"
+            value={dados.cnpj}
             onChange={handleChange}
             className={estilos.input}
+            placeholder="000.000.000-00 ou 00.000.000/0000-00"
+            maxLength="18"
+            required
           />
         </div>
 
@@ -225,9 +275,21 @@ const FormularioNegocio = ({ aoSalvar, negocioExistente }) => {
             onChange={handleChange}
             className={estilos.input}
             placeholder="(00) 00000-0000"
+            maxLength="15"
             required
           />
         </div>
+      </div>
+
+      <div className={estilos.campo}>
+        <label className={estilos.label}>Endereço</label>
+        <input
+          type="text"
+          name="endereco"
+          value={dados.endereco}
+          onChange={handleChange}
+          className={estilos.input}
+        />
       </div>
 
       <div className={estilos.secaoHorarios}>
